@@ -10,10 +10,10 @@ var width = 32;
 var foodPosX;
 var foodPosY;
 
-var snakePosX;
-var snakePosY;
+var snakePosX = 1;
+var snakePosY = 1;
 
-var snakeDirection = 1;
+var snakeDirection = 2;
 
 keypress(process.stdin);
 process.stdin.setRawMode(true);
@@ -23,17 +23,29 @@ process.stdin.on('keypress', InputHandler);
 process.stdout.write('\x1bc');
 
 printGameBoard();
-newFood();
+//newFood();
 //resetCursor();
-//updateGame();
+updateGame();
 
 function InputHandler(chunk,key){
     switch(key.name){
-        case "up": snakeDirection = 1; break;
+        case "up": snakeDirection = snakeDirectionChecker(1); break;
         case "right": snakeDirection = 2; break;
         case "down": snakeDirection = 3; break;
         case "left": snakeDirection = 4; break;
     }
+}
+
+function snakeDirectionChecker(let direction){
+    
+}
+
+function updateGame(){
+
+}
+
+function moveSnake(){
+    if()
 }
 
 function newFood(){
