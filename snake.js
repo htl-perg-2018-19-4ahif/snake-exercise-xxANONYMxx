@@ -30,22 +30,46 @@ updateGame();
 function InputHandler(chunk,key){
     switch(key.name){
         case "up": snakeDirection = snakeDirectionChecker(1); break;
-        case "right": snakeDirection = 2; break;
-        case "down": snakeDirection = 3; break;
-        case "left": snakeDirection = 4; break;
+        case "right": snakeDirection = snakeDirectionChecker(2); break;
+        case "down": snakeDirection = snakeDirectionChecker(3); break;
+        case "left": snakeDirection = snakeDirectionChecker(4); break;
     }
 }
 
-function snakeDirectionChecker(let direction){
-    
+function snakeDirectionChecker(direction){
+    if(direction == 1 || direction != 3){
+        snakeDirection = direction;
+    }
+    if(direction == 2 || direction != 4){
+        snakeDirection = direction;
+    }
+    if(direction == 3 || direction != 1){
+        snakeDirection = direction;
+    }
+    if(direction == 4 || direction != 2){
+        snakeDirection = direction;
+    }
 }
 
 function updateGame(){
-
+    cursor.bg.white();
+    cursor.goto(snakePosX, snakePosY).write(" ");
+    if(snakeDirection == 1){
+        snakePosY += 1;
+    }
+    if(snakeDirection == 2){
+        snakePosX += 1;
+    }
+    if(snakeDirection == 3){
+        snakePosY -= 1;
+    }
+    if(snakeDirection == 4){
+        snakePosY -= 1;
+    }
 }
 
 function moveSnake(){
-    if()
+    
 }
 
 function newFood(){
